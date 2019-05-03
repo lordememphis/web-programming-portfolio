@@ -1,3 +1,24 @@
+
+@mixin for-phone-only 
+  	@media (max-width: 599px)  
+	  	@content
+
+@mixin for-tablet-portrait-up 
+  	@media (min-width: 600px) 
+	   	@content 
+
+@mixin for-tablet-landscape-up 
+  	@media (min-width: 900px)  
+	  	@content 
+
+@mixin for-desktop-up 
+  	@media (min-width: 1200px)  
+	  	@content 
+
+@mixin for-big-desktop-up 
+  	@media (min-width: 1800px)  
+	  	@content 
+	
 $primary-color: #01d277
 $secondary-color: #081c24
 
@@ -5,6 +26,7 @@ body
 	font-family: Prata, serif
 	margin: 0
 	color: $secondary-color
+	background-color: $primary-color
 
 	a 
 		text-decoration: none
@@ -23,7 +45,7 @@ body
 
 	header 
 		position: fixed
-		width: 250px
+		width: 350px
 		height: 100%
 		padding: 2rem
 		background-color: $secondary-color
@@ -31,21 +53,18 @@ body
 		box-sizing: border-box
 
 		nav 
-			display: flex
-			flex-direction: column
 			position: relative
 			top: 50%
 			transform: translateY(-50%)
 			text-align: center
 
 			img 
-				width: 100px
+				width: 200px
 				height: auto
 				margin: 1rem auto
 				border: 1px solid $primary-color
 				border-radius: 150px
 				padding: 4px
-
 
 			a 
 				margin-top: 2px
@@ -55,21 +74,45 @@ body
 				text-transform: uppercase
 				font-style: italic
 				-webkit-text-stroke: 1px $primary-color
+				font-size: 36px
+				padding-bottom: 2px
+				border-bottom: 1px solid $primary-color
 
 		footer 
 			position: absolute
 			bottom: 0
 			margin-bottom: 12px
 
-			span 
+			p 
 				color: $primary-color
-				font-size: 14px
+				text-align: center
+		
+		@include for-tablet-portrait-up 
+			width: 250px
+
+			nav
+				img
+					width: 150px
+
+				a
+					font-size: 20px	
+
+		@include for-big-desktop-up
+			width: 250px
+			padding: 2rem
+
+			nav
+				img
+					width: 100px
+					height: auto
+					margin: 1rem auto
+					border: 1px solid $primary-color
+					border-radius: 150px
+					padding: 4px
 
 	.page 
-		margin-left: 250px
-		padding: 2rem 4rem
-		background-color: $primary-color
-		height: 100vh
+		margin-left: 350px
+		padding: 4rem 2rem
 
 		h1
 			font-family: "Open Sans", serif
@@ -80,9 +123,16 @@ body
 			padding: 1rem 3rem 1rem 1rem
 			background-color: $secondary-color
 
+		.hero-heading
+			padding: 8rem 0 10rem
+
+			h1
+				font-size: 60px
+				background-color: transparent
+				-webkit-text-stroke: 1px $secondary-color
+
 		main
 			section
-				width: 50%
 				margin-bottom: 3rem
 
 				.heading
@@ -90,17 +140,19 @@ body
 
 					h1
 						display: inline-block
-						font-size: 20px
+						font-size: 40px
 						margin-bottom: 1rem
 						border-bottom: 1px solid $secondary-color
 
 				.paragraph
+					p
+						font-size: 12px
 					.stage
 						margin-bottom: 2rem
 
 						h2
 							font-family: "Open Sans", serif
-							font-size: 1.3rem
+							font-size: 2rem
 							-webkit-text-stroke: 1px $secondary-color
 							color: transparent
 							font-style: italic
@@ -129,39 +181,8 @@ body
 						span
 							display: none
 
-		&.home 
-			main 
-				position: relative
-				top: 40%
-				transform: translateY(-50%)
-				text-align: center
-
-				div 
-					padding-top: 4rem
-					padding-bottom: 4rem
-
-					h1
-						font-size: 3rem
-
-					a
-						&.button
-							padding: 1rem 2rem
-							background-color: $secondary-color
-							color: $primary-color
-							margin: 3rem
-
-					&.links
-						a
-							font-family: "Open Sans", serif
-							-webkit-text-stroke: 1px $secondary-color
-							color: transparent
-							font-style: italic
-							text-transform: uppercase
-							margin: 8px
-							padding-bottom: 4px
-							border-bottom: 1px solid $secondary-color
-
 		&.contact
+
 			main
 				display: flex
 				flex-direction: column
@@ -169,38 +190,76 @@ body
 				padding: 1rem
 				width: 5.5in
 
-				div
-					&.top
-						margin-bottom: 1rem
-						img
-							width: 100px
-							height: auto
-							display: inline-block
-							margin-right: 1rem
-							border-radius: 100px
+				.top
+					margin-bottom: 1rem
+					img
+						width: 100px
+						height: auto
+						display: inline-block
+						margin-right: 1rem
+						border-radius: 100px
 
-						div
-							display: inline-block
+					div
+						display: inline-block
 
-							h1
-								margin-bottom: 8px							
-							.tag
-								font-size: 20px
-								font-weight: 700
+						h1
+							margin-bottom: 8px
+							font-size: 30px						
+						.tag
+							font-size: 24px
+							font-weight: 700
 
-					&.bottom
-						span 
-							display: inline-block
-							padding: 4px 8px 6px
-							background-color: rgba($secondary-color, 0.150)
-							margin: 6px 4px
-							font-size: 13px
+				.bottom
+					span 
+						display: inline-block
+						padding: 4px 8px 6px
+						background-color: rgba($secondary-color, 0.150)
+						margin: 6px 4px
+						font-size: 24px
 
-							a 
-								color: $secondary-color
+						a 
+							color: $secondary-color
 
-								&:hover
-									border-bottom: 1px solid $secondary-color
-					
-	
+							&:hover
+								border-bottom: 1px solid $secondary-color
+
+		@include for-tablet-portrait-up 
+			margin-left: 250px
+
+			main
+				section
+					.heading
+						h1
+							font-size: 28px
+
+					.paragraph
+						p
+							font-size: 14px
+
+						.stage
+							h2
+								font-size: 1.5rem
+			
+			&.contact
+				main
+					.bottom
+						span
+							font-size: 18px
+
+		@include for-tablet-landscape-up 			
+			&.contact
+				main
+					.bottom
+						span
+							font-size: 14px
+
+
+		@include for-big-desktop-up
+			padding: 2rem 4rem
+			background-color: $primary-color
+
+			main
+				section
+					width: 50%
+		
 

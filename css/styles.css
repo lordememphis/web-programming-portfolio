@@ -2,6 +2,7 @@ body {
   font-family: Prata, serif;
   margin: 0;
   color: #081c24;
+  background-color: #01d277;
 }
 
 body a {
@@ -21,7 +22,7 @@ body h6 {
 
 body header {
   position: fixed;
-  width: 250px;
+  width: 350px;
   height: 100%;
   padding: 2rem;
   background-color: #081c24;
@@ -31,13 +32,6 @@ body header {
 }
 
 body header nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -46,7 +40,7 @@ body header nav {
 }
 
 body header nav img {
-  width: 100px;
+  width: 200px;
   height: auto;
   margin: 1rem auto;
   border: 1px solid #01d277;
@@ -62,6 +56,9 @@ body header nav a {
   text-transform: uppercase;
   font-style: italic;
   -webkit-text-stroke: 1px #01d277;
+  font-size: 36px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid #01d277;
 }
 
 body header footer {
@@ -70,16 +67,41 @@ body header footer {
   margin-bottom: 12px;
 }
 
-body header footer span {
+body header footer p {
   color: #01d277;
-  font-size: 14px;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  body header {
+    width: 250px;
+  }
+  body header nav img {
+    width: 150px;
+  }
+  body header nav a {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1800px) {
+  body header {
+    width: 250px;
+    padding: 2rem;
+  }
+  body header nav img {
+    width: 100px;
+    height: auto;
+    margin: 1rem auto;
+    border: 1px solid #01d277;
+    border-radius: 150px;
+    padding: 4px;
+  }
 }
 
 body .page {
-  margin-left: 250px;
-  padding: 2rem 4rem;
-  background-color: #01d277;
-  height: 100vh;
+  margin-left: 350px;
+  padding: 4rem 2rem;
 }
 
 body .page h1 {
@@ -92,8 +114,17 @@ body .page h1 {
   background-color: #081c24;
 }
 
+body .page .hero-heading {
+  padding: 8rem 0 10rem;
+}
+
+body .page .hero-heading h1 {
+  font-size: 60px;
+  background-color: transparent;
+  -webkit-text-stroke: 1px #081c24;
+}
+
 body .page main section {
-  width: 50%;
   margin-bottom: 3rem;
 }
 
@@ -103,9 +134,13 @@ body .page main section .heading {
 
 body .page main section .heading h1 {
   display: inline-block;
-  font-size: 20px;
+  font-size: 40px;
   margin-bottom: 1rem;
   border-bottom: 1px solid #081c24;
+}
+
+body .page main section .paragraph p {
+  font-size: 12px;
 }
 
 body .page main section .paragraph .stage {
@@ -114,7 +149,7 @@ body .page main section .paragraph .stage {
 
 body .page main section .paragraph .stage h2 {
   font-family: "Open Sans", serif;
-  font-size: 1.3rem;
+  font-size: 2rem;
   -webkit-text-stroke: 1px #081c24;
   color: transparent;
   font-style: italic;
@@ -146,41 +181,6 @@ body .page main section .paragraph span span {
   display: none;
 }
 
-body .page.home main {
-  position: relative;
-  top: 40%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  text-align: center;
-}
-
-body .page.home main div {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-body .page.home main div h1 {
-  font-size: 3rem;
-}
-
-body .page.home main div a.button {
-  padding: 1rem 2rem;
-  background-color: #081c24;
-  color: #01d277;
-  margin: 3rem;
-}
-
-body .page.home main div.links a {
-  font-family: "Open Sans", serif;
-  -webkit-text-stroke: 1px #081c24;
-  color: transparent;
-  font-style: italic;
-  text-transform: uppercase;
-  margin: 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid #081c24;
-}
-
 body .page.contact main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,11 +194,11 @@ body .page.contact main {
   width: 5.5in;
 }
 
-body .page.contact main div.top {
+body .page.contact main .top {
   margin-bottom: 1rem;
 }
 
-body .page.contact main div.top img {
+body .page.contact main .top img {
   width: 100px;
   height: auto;
   display: inline-block;
@@ -206,32 +206,67 @@ body .page.contact main div.top img {
   border-radius: 100px;
 }
 
-body .page.contact main div.top div {
+body .page.contact main .top div {
   display: inline-block;
 }
 
-body .page.contact main div.top div h1 {
+body .page.contact main .top div h1 {
   margin-bottom: 8px;
+  font-size: 30px;
 }
 
-body .page.contact main div.top div .tag {
-  font-size: 20px;
+body .page.contact main .top div .tag {
+  font-size: 24px;
   font-weight: 700;
 }
 
-body .page.contact main div.bottom span {
+body .page.contact main .bottom span {
   display: inline-block;
   padding: 4px 8px 6px;
   background-color: rgba(8, 28, 36, 0.15);
   margin: 6px 4px;
-  font-size: 13px;
+  font-size: 24px;
 }
 
-body .page.contact main div.bottom span a {
+body .page.contact main .bottom span a {
   color: #081c24;
 }
 
-body .page.contact main div.bottom span a:hover {
+body .page.contact main .bottom span a:hover {
   border-bottom: 1px solid #081c24;
+}
+
+@media (min-width: 600px) {
+  body .page {
+    margin-left: 250px;
+  }
+  body .page main section .heading h1 {
+    font-size: 28px;
+  }
+  body .page main section .paragraph p {
+    font-size: 14px;
+  }
+  body .page main section .paragraph .stage h2 {
+    font-size: 1.5rem;
+  }
+  body .page.contact main .bottom span {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 900px) {
+  body .page.contact main .bottom span {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1800px) {
+  body .page {
+    padding: 2rem 4rem;
+    background-color: #01d277;
+  }
+  body .page main section {
+    width: 50%;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
